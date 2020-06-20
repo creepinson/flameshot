@@ -1,0 +1,21 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2.7.1
+    - name: Bash for GitHub Actions
+      uses: jcblw/bash@1.0.0
+    - name: cmake-configure
+      uses: snickerbockers/cmake-configure@prerel1
